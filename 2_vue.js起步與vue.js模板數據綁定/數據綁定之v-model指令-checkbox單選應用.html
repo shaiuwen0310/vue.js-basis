@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+<meta name="description" content="Our first page">
+<meta name="keywords" content="html tutorial template">
+</head>
+
+<body>
+    <div id="app">
+        <input type="checkbox" v-model="flag" id="chk01">
+        <label for="chk01">{{flag}}</label>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                flag: true
+            }
+        })
+    </script>
+</body>
+</html>

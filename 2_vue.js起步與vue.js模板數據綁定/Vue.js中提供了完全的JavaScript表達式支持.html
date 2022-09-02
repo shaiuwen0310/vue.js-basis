@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+<meta name="description" content="Our first page">
+<meta name="keywords" content="html tutorial template">
+</head>
+
+<body>
+    <div id="app01">
+        {{5+5}}<br>
+        {{ok ? "yes" : "no"}}<br>
+        {{message}}<br>
+        {{message.split('').reverse().join('')}}
+    </div>
+
+    <script>
+        var v = new Vue({
+            el: "#app01",
+            data: {
+                ok: true,
+                message: "大家好123456",
+                number: 1
+            }
+        })
+    </script>
+</body>
+</html>

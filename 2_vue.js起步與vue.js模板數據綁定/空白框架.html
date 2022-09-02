@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+<meta name="description" content="Our first page">
+<meta name="keywords" content="html tutorial template">
+</head>
+<body>
+<div id="abc">
+    <p>{{ message }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#abc',
+        data: {
+            message: "Hello Vue.js!"
+        }
+    })
+</script>
+
+</body>
+</html>

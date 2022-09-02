@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-bind:style="[css1, css2]">綁定陣列</div>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                css1: {fontSize: '30px'},
+                css2: {color: 'red'},
+
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+<script src="axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        獲取內容: {{content}}
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                content: ""
+            },
+            mounted: function () {
+                this.f1()
+            },
+            methods: {
+                f1: function () {
+                    axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+                    .then(function(response) {
+                        this.content = response.data
+                    }.bind(this))
+                    .catch(function(error) {
+                        console.log(error);
+                    });
+
+                }
+            }
+        });
+    </script>
+</body>
+</html>

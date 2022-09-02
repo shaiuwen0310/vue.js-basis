@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+<meta name="description" content="Our first page">
+<meta name="keywords" content="html tutorial template">
+</head>
+
+<body>
+    <div id="myapp001">
+        <h1>{{name}}</h1>
+        <input type="text" v-model="name">
+        <textarea v-model="name"></textarea>
+    </div>
+
+    <script>
+        var v = new Vue({
+            el: "#myapp001",
+            data: {
+                name: "會跟著輸入變動~~~"
+            }
+        })
+    </script>
+</body>
+</html>

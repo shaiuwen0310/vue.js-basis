@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+<meta name="description" content="Our first page">
+<meta name="keywords" content="html tutorial template">
+</head>
+
+<body>
+    <div id="app">
+        <select name="first">
+            <option value="0">請選擇</option>
+            <option value="1" selected>蘋果</option>
+            <option value="2">香蕉</option>
+            <option value="3">芭樂</option>
+            <option value="4">鳳梨</option>
+            <option value="5">柳丁</option>
+        </select>
+
+        <select name="first" v-model="val">
+            <option value="0">請選擇</option>
+            <option value="1">蘋果</option>
+            <option value="2">香蕉</option>
+            <option value="3">芭樂</option>
+            <option value="4">鳳梨</option>
+            <option value="5">柳丁</option>
+        </select>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                val: '3'
+            }
+        })
+    </script>
+</body>
+</html>

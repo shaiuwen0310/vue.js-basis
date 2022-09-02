@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+<script src="axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <form v-on:submit.prevent="f1()">
+            <input type="text" name="name" v-model="f.name" />
+            <input type="password" name="password" v-model="f.password" />
+            <input type="submit" value="提交" />
+        </form>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                f: {}
+            },
+            methods: {
+                f1: function () {
+                    // 要提交到伺服器的第一步，獲取表單數據
+                    console.log(this.f)
+                    console.log(this.f.name)
+                    console.log(this.f.password)
+
+                    // 調用遠程服務器
+                    axios.get('http://sys2.yaoyiwangluo.com/m/t0.asp', {
+                        // 參數
+                        params:{myname:this.f.name}
+                    })
+                    .then(function(response) {
+                        console.log(response);
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                    });
+
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 全選會有一個click的改變函數
+            一點擊就會改變checked變數的值，為true就會打勾 -->
+        <input type="checkbox" id="all" v-model="checked" @click="checkAll()">
+        <label for="all">全選</label>
+        <hr>
+
+        <!-- 雙向綁定，將value加入到陣列中，
+            stockArr中有aapl數值，checkbux也會打勾 -->
+        <input type="checkbox" id="aaa" value="aapl" v-model="stockArr">
+        <label for="aaa">蘋果</label>
+        <input type="checkbox" id="bbb" value="rtx" v-model="stockArr">
+        <label for="bbb">雷神</label>
+        <input type="checkbox" id="ccc" value="spy" v-model="stockArr">
+        <label for="ccc">標普500</label>
+        <hr>
+
+        <label>stockArr: {{stockArr}}</label>
+
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                checked: false,
+                stockArr: [],
+                standardArr: ["aapl", "rtx", "spy"]
+            },
+            methods: {
+                checkAll(){
+                    if(this.checked){
+                        this.stockArr = this.standardArr
+                    } else{
+                        this.stockArr = []
+                    }
+                }
+            },
+            watch: {
+                // 所有選項都打勾後，就會監聽到要改變checked成true，使＂全選＂選項打勾
+                // 監聽stockArr數值，所以前面要寫此變數名稱
+                stockArr: function () {
+                    if(this.stockArr.length == this.standardArr.length){
+                        this.checked = true
+                    } else{
+                        this.checked = false
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

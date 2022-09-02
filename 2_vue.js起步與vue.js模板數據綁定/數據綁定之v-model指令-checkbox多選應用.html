@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+<meta name="description" content="Our first page">
+<meta name="keywords" content="html tutorial template">
+</head>
+
+<body>
+    <div id="app">
+        <input type="checkbox" v-model="flag" value="杭州">杭州~<br>
+        <input type="checkbox" v-model="flag" value="上海">上海~<br>
+        <input type="checkbox" v-model="flag" value="蘇州">蘇州~<br>
+        <h1>{{flag}}</h1>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                flag: ["上海"]
+            }
+        })
+    </script>
+</body>
+</html>

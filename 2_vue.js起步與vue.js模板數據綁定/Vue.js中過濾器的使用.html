@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+<meta name="description" content="Our first page">
+<meta name="keywords" content="html tutorial template">
+</head>
+
+<body>
+    <div id="app">
+        {{name}}<br>
+        {{name | f1}}
+    </div>
+
+    <script>
+        var v = new Vue({
+            el: "#app",
+            data: {
+                name: "judy"
+            },
+            filters: {
+                f1: function(a){
+                    if (!a) return ""
+                    a = a.toString()
+                    return a.charAt(0).toUpperCase() + a.slice(1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

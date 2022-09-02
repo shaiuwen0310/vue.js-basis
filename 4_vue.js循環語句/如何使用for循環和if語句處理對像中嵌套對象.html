@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+</head>
+
+<body>
+    <div>循環顯示產品</div>
+    <div id="app">
+        <ul>
+            <li v-for="(v, k, i) in obj01">
+                <p v-if="typeof v !='object'">{{v}}</p>
+                <p v-else>{{k}}</p>
+                <ul v-if="typeof v === 'object'">
+                    <li v-for="(v1, k1) in v">{{v1}}</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                obj01: {
+                    name: "judy",
+                    area: "Taipei",
+                    lesson: {class1: "AAA", class2: "BBB", class3: "CCC"}
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>計數器: {{count}}</p>
+        <div>改變之前的值: {{ov}}</div>
+        <div>改變之後的值: {{nv}}</div>
+        <button @click="count++">點擊</button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                count: 1,
+                ov: 0,
+                nv: 0
+            }
+        })
+
+        // 要監聽的數值
+        vm.$watch("count", function (newValue, oldValue) {
+            vm.$data.ov = oldValue;
+            vm.$data.nv = newValue;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+<meta name="description" content="Our first page">
+<meta name="keywords" content="html tutorial template">
+</head>
+
+<body>
+    <div id="app">
+        <div v-show="first" id="div01">v-show=true</div>
+        <div v-show="second" id="div02">v-show=flase</div>
+        <button onclick="my()">讀取</button>
+
+        <div v-if="first" id="div03">v-if=true</div>
+        <div v-if="second" id="div04">v-if=flase</div>
+        <button onclick="my2()">讀取(v-if讀取不到false元件)</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                first: true,
+                second: false
+            }
+        })
+
+        function my() {
+            alert(document.getElementById("div01").innerHTML);
+            alert(document.getElementById("div02").innerHTML);
+        }
+        function my2() {
+            alert(document.getElementById("div03").innerHTML);
+            alert(document.getElementById("div04").innerHTML);
+        }
+    </script>
+</body>
+</html>

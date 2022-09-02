@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="test">點擊</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                property: "你好啊"
+
+            },
+            methods: {
+                test: function(event){
+                    alert(this.property)
+                    if (event){
+                        alert(event.target.tagName)
+                    }
+                }
+            }
+        })
+
+        function test(b){
+            alert(b)
+        }
+    </script>
+</body>
+</html>

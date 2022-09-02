@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="tech+=1">用click事件增加1</button>
+        <div>{{tech}}</div>
+        <hr>
+        <button v-on:click="say('vue.js的函數定義')">say hi</button>
+        <hr>
+        <button v-on:click="test('改成調用普通的js函式')">say hi</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                tech: 0
+
+            },
+            methods: {
+                say: function(a){
+                    alert(a)
+                }
+            }
+        })
+
+        function test(b){
+            alert(b)
+        }
+    </script>
+</body>
+</html>

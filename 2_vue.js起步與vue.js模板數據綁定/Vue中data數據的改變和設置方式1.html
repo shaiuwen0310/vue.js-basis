@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+<meta name="description" content="Our first page">
+<meta name="keywords" content="html tutorial template">
+</head>
+
+<body>
+    <div id="myapp001" style="background-color:pink;">
+        <h1>{{site}}-001</h1>
+        <h1>{{url}}-002</h1>
+        <h1>{{cs()}}</h1>
+    </div>
+
+    <script>
+        var myvue = new Vue({
+            el: '#myapp001',
+            data: {
+                site: "大學學堂",
+                url: "www.123.com"
+            },
+            methods:  {
+                cs: function(){
+                    return this.url
+                }
+            }
+        })
+        myvue.site='修改變數值："實例化.參數"即可'
+    </script>
+</body>
+</html>

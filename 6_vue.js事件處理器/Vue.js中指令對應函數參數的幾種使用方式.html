@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="x1+=1">加一</button>
+        <div>常規寫法 {{x1}}</div>
+        <hr>
+
+        <button @click="add">加一</button>
+        <div>vue.js簡短click寫法 {{x2}}</div>
+        <hr>
+
+        <button @click="add2(x1, x2)">前面兩個函數總和</button>
+        <div>{{x3}}</div>
+        <hr>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                x1: 0,
+                x2: 0,
+                x3: 0
+            },
+            methods: {
+                add: function () {
+                    this.x2 = this.x2 +1
+                },
+                add2: function (a, b) {
+                    this.x3 = a + b
+                }
+            }
+        })
+
+        function test(b){
+            alert(b)
+        }
+    </script>
+</body>
+</html>

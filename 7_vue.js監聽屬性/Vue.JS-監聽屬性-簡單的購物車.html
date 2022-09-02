@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+
+<style type="text/css">
+    table {
+        border: 1px solid black;
+    }
+    table {
+        width: 100%;
+    }
+    th {
+        height: 50px;
+    }
+    th, td {
+        border-bottom: 1px solid #ddd;
+    }
+</style>
+
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <th>序號</th>
+                <th>產品名稱</th>
+                <th>產品價格</th>
+                <th>購買數量</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="x in arr1">
+                <td>{{x.id}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.price}}</td>
+                <td>
+                    <button v-on:click="x.quantity=x.quantity-1">-</button>
+                    {{x.quantity}}
+                    <button v-on:click="x.quantity=x.quantity+1">+</button>
+                </td>
+                <td>
+                    <button v-on:click="x.quantity=0">清空</button>
+                </td>
+            </tr>
+        </table>
+        <div>總價: {{ cost() }}</div>
+
+        <hr>
+        <button v-on:click="test">hihihi</button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                // 定義手機的模擬數據，有很多個所以是陣列
+                arr1 : [
+                    // 每個手機都是一個對象
+                    {
+                        id: 1,
+                        name: "pixel4",
+                        price: 10000,
+                        quantity: 5
+                    },
+                    {
+                        id: 1,
+                        name: "pixel5",
+                        price: 10001,
+                        quantity: 6
+                    },
+                    {
+                        id: 1,
+                        name: "pixel6",
+                        price: 10002,
+                        quantity: 3
+                    },
+                    {
+                        id: 1,
+                        name: "pixel7",
+                        price: 10003,
+                        quantity: 8
+                    },
+                    {
+                        id: 1,
+                        name: "pixel8",
+                        price: 10004,
+                        quantity: 2
+                    },
+                ]
+            },
+            methods: {
+                test: function () {
+                    alert(this.arr1[0].quantity)
+                },
+                cost: function () {
+                    var sum = 0
+                    for (let i = 0; i < this.arr1.length; i++) {
+                        sum = sum + (this.arr1[i].price * this.arr1[i].quantity)
+                    }
+                    return sum
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

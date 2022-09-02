@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+<style>
+    .css1{
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+    }
+    .css2{
+        background-color: aliceblue;
+    }
+    .css3{
+        background-color: yellowgreen;
+    }
+</style>
+</head>
+
+<body>
+    <div id="app">
+        <div style="font-size: 30px; color: cyan;">常規的style</div>
+        <div v-bind:style="{color:'green', fontSize: '30px'}">v-bind:style，跟常規語法不太一樣</div>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue網頁</title>
+<script src="vue.min.js"></script>
+</head>
+
+<body>
+    <div>循環顯示產品</div>
+    <div id="app">
+        <div v-for="p in products">
+            {{p.name}}-{{p.price}}-{{p.type}}
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                products: [
+                    {name: "door", price: 10, type: 1},
+                    {name: "cat", price: 15, type: 2},
+                    {name: "chair", price: 20, type: 3}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
